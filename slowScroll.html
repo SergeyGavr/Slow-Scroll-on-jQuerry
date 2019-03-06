@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Прокрутка страницы</title>
+	<style>
+		#more {
+			margin-top: 2000px;
+			margin-bottom: 1000px;
+		}
+	</style>
+</head>
+<body>
+	<div id="up"></div>
+
+  <a href="javascript://0" onclick="slowScroll ('#more')">Более подробно</a>
+
+  <div id="more">Больше информаци | <a href="javascript://0" onclick="slowScroll ('#up')">Навверх</a></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		function slowScroll(id) {
+			var offset = 0; // в переменную offset ввести высоту шапки, чтобы она не закрывала текст
+			$('html, body').animate ({
+				scrollTop: $(id).offset().top - offset
+			}, 500); // будем прокручивать элементы html, body, берем оффсет сверху, отнимаем оффсет(переменную)
+			return false; // чтобы после анимации мы выходили из функции
+		}
+	</script>
+</body>
+</html>
